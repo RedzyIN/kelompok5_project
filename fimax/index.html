@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIMAX.ID - Nonton Seru Tiket Gampang</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=acha336" />
+</head>
+<body>
+  <div id="app">
+    <section id="landingPage" class="landing-page">
+      <div class="overlay"></div>
+      <header class="landing-top">
+        <h1 class="brand brand-large">FIMAX.ID</h1>
+        <select id="languageSelect" class="language-select" aria-label="Pilih Bahasa">
+          <option>Bahasa Indonesia</option>
+          <option>English</option>
+        </select>
+      </header>
+
+      <main class="hero">
+        <h2>Nonton Seru<br><span>Tiket Gampang</span></h2>
+        <p>Pesan tiket bioskop favoritmu kapan saja,<br>di mana saja dengan Fimax.id</p>
+        <div class="hero-actions">
+          <button class="btn btn-red" data-open-auth="signin">Sign in</button>
+          <button class="btn btn-red" data-open-auth="signup">Sign up</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="authPage" class="auth-page hidden">
+      <div class="overlay"></div>
+      <button id="backToLanding" class="back-button">← Kembali</button>
+      <form id="authForm" class="auth-card" autocomplete="off">
+        <h1 class="brand auth-logo">FIMAX.ID</h1>
+        <h2 id="authTitle">Sign in</h2>
+
+        <div id="emailGroup" class="form-group">
+          <label for="emailInput">Masukkan Email</label>
+          <input id="emailInput" type="email" placeholder="contoh@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="usernameInput">Masukkan Username</label>
+          <input id="usernameInput" type="text" placeholder="username">
+        </div>
+
+        <div id="passwordGroup" class="form-group">
+          <label for="passwordInput">Masukkan Password</label>
+          <input id="passwordInput" type="password" placeholder="minimal 6 karakter">
+        </div>
+
+        <p id="authSwitchText" class="switch-text">Belum memiliki akun? <button type="button" id="switchAuth">Sign up</button></p>
+        <button id="authSubmit" class="btn btn-red auth-submit" type="submit">Sign in</button>
+      </form>
+    </section>
+
+    <section id="mainApp" class="main-app hidden">
+      <header class="navbar">
+        <button class="brand brand-nav" data-nav="home">FIMAX.ID</button>
+        <nav>
+          <button class="nav-link active" data-nav="home">Beranda</button>
+          <button class="nav-link" data-nav="cinema">Bioskop</button>
+          <button class="nav-link" data-nav="film">Film</button>
+          <button class="nav-link" data-nav="food">Makanan</button>
+          <button class="nav-link" data-nav="schedule">Jadwal Saya</button>
+          <button class="nav-link" data-nav="account">Akun</button>
+        </nav>
+        <div class="nav-search">
+          <input id="globalSearch" type="search" placeholder="Cari film..." />
+        </div>
+        <div class="nav-location">⌖ Makassar</div>
+      </header>
+
+      <main class="content">
+        <section id="pageHome" class="page active">
+          <div class="home-grid">
+            <div class="home-copy">
+              <h2>Nonton Seru,<br><span>Tiket Gampang.</span></h2>
+              <p>Pesan tiket film favoritmu kapan saja, di mana saja dengan FiMax.</p>
+              <div class="quick-actions">
+                <button class="btn btn-red" data-nav="cinema">Cinema</button>
+                <button class="btn btn-red" data-nav="film">Movie</button>
+                <button class="btn btn-red" data-nav="food">Order Food</button>
+              </div>
+            </div>
+            <div class="hero-banner acha-banner">
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <h3>Now Playing</h3>
+            <button class="link-button" data-nav="film">lihat semua ›</button>
+          </div>
+          <div id="nowPlayingList" class="poster-row"></div>
+        </section>
+
+        <section id="pageCinema" class="page">
+          <div class="cinema-layout">
+            <aside class="cinema-sidebar">
+              <h2>Pilih Bioskop</h2>
+              <div id="cinemaList" class="cinema-list"></div>
+            </aside>
+            <div class="cinema-panel">
+              <h2 id="selectedCinemaTitle">Pilih Bioskop</h2>
+              <p id="selectedCinemaAddress" class="muted">Klik salah satu bioskop untuk melihat jadwal film.</p>
+              <div id="cinemaMovieGrid" class="movie-grid small-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pageFilm" class="page">
+          <div class="section-heading top-heading">
+            <h2>Daftar Film</h2>
+            <div class="tools">
+              <select id="sortMovieSelect">
+                <option value="default">Urutkan</option>
+                <option value="title-asc">Judul A-Z</option>
+                <option value="rating-desc">Rating Tertinggi</option>
+                <option value="duration-asc">Durasi Terpendek</option>
+              </select>
+            </div>
+          </div>
+          <div id="movieGrid" class="movie-grid"></div>
+        </section>
+
+        <section id="pageFood" class="page">
+          <div class="section-heading top-heading">
+            <h2>Makanan & Minuman</h2>
+            <div class="tools">
+              <select id="sortFoodSelect">
+                <option value="default">Urutkan</option>
+                <option value="price-asc">Harga Terendah</option>
+                <option value="price-desc">Harga Tertinggi</option>
+                <option value="name-asc">Nama A-Z</option>
+              </select>
+            </div>
+          </div>
+          <div id="foodGrid" class="food-grid"></div>
+        </section>
+
+        <section id="pageSchedule" class="page">
+          <div class="section-heading top-heading">
+            <h2>Jadwal Film Pengguna</h2>
+            <button id="printScheduleBtn" class="btn btn-red btn-small">Cetak Jadwal</button>
+          </div>
+          <div id="userScheduleList" class="ticket-list"></div>
+        </section>
+
+        <section id="pageAccount" class="page">
+          <div class="account-card" id="accountCard">
+            <span id="accountUsername" style="display:none">guest</span>
+            <span id="accountEmail" style="display:none">guest@fimax.id</span>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <div id="detailModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card wide">
+      <button class="modal-close" data-close-modal>×</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card wide receipt-card">
+      <button class="modal-close" data-close-payment>×</button>
+      <div id="paymentContent"></div>
+    </div>
+  </div>
+
+  <div id="crudModal" class="modal hidden" aria-hidden="true">
+    <form id="crudForm" class="modal-card">
+      <button type="button" class="modal-close" data-close-crud>×</button>
+      <h2 id="crudTitle">Tambah Data</h2>
+      <div id="crudFields"></div>
+      <button class="btn btn-red auth-submit" type="submit">Simpan Data</button>
+    </form>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/data-structures.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js?v=acha336"></script>
+</body>
+</html>
